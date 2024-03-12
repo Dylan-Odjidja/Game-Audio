@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{dd63e9f3-59fc-49ec-afe2-0faa22398858}">
+		<property name="assetPath">
+			<value>gravel_6.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.27250000000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3d19d974-8fef-40fd-b536-7494bce1318e}</destination>
+		</relationship>
+	</object>
+</objects>
