@@ -5,7 +5,7 @@
 			<value>Background Music</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{be4db15f-5027-481a-ac4b-85ec0669c890}</destination>
@@ -100,7 +100,7 @@
 			<value>true</value>
 		</property>
 		<relationship name="sounds">
-			<destination>{d8a42431-5574-4edf-99e2-d0629cd5c938}</destination>
+			<destination>{669a8467-086a-408e-bb88-5324f05204ea}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{ee796c46-544d-4498-82a0-d6a58b61b4db}">
@@ -124,17 +124,27 @@
 	</object>
 	<object class="MixerBusPanner" id="{51a837ff-64ae-4309-84e3-b7a380c24093}" />
 	<object class="MixerBusFader" id="{9cd77e89-6ed1-4d95-a169-5ed901414fd1}" />
-	<object class="SingleSound" id="{d8a42431-5574-4edf-99e2-d0629cd5c938}">
+	<object class="SingleSound" id="{669a8467-086a-408e-bb88-5324f05204ea}">
 		<relationship name="audioFile">
-			<destination>{8cce0f0c-1712-4621-bf01-e3a088ca40e0}</destination>
+			<destination>{213a76b6-8242-4669-8280-7803027de231}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{6e386556-a134-4708-8eea-15883b8da13e}">
 		<relationship name="effects">
 			<destination>{0b6903b1-26ae-4199-a917-7d1ce3f80a40}</destination>
+			<destination>{d0d31693-f96d-4518-b153-f5e4eff0ac5b}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusPanner" id="{b974b595-9a5f-4c00-bb70-c645e876ca3c}" />
+	<object class="MixerBusPanner" id="{b974b595-9a5f-4c00-bb70-c645e876ca3c}">
+		<property name="surroundLFELevel">
+			<value>-20.5</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{2a9813f6-4f85-4dd2-9a92-df8c5ce0dd48}" />
 	<object class="MixerBusFader" id="{0b6903b1-26ae-4199-a917-7d1ce3f80a40}" />
+	<object class="SpatialiserEffect" id="{d0d31693-f96d-4518-b153-f5e4eff0ac5b}">
+		<property name="panBlend">
+			<value>0.784999967</value>
+		</property>
+	</object>
 </objects>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{8cce0f0c-1712-4621-bf01-e3a088ca40e0}">
+	<object class="AudioFile" id="{213a76b6-8242-4669-8280-7803027de231}">
 		<property name="assetPath">
-			<value>calm-music-64526.mp3</value>
+			<value>lo-fi-synth-smooth-calming-chords_90bpm_G#_minor.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>24</value>
+			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>27.672000000000001</value>
+			<value>10.666666666666666</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{3d19d974-8fef-40fd-b536-7494bce1318e}</destination>
