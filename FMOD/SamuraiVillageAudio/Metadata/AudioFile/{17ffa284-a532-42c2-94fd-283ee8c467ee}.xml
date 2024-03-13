@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{213a76b6-8242-4669-8280-7803027de231}">
+	<object class="AudioFile" id="{17ffa284-a532-42c2-94fd-283ee8c467ee}">
 		<property name="assetPath">
-			<value>mainbackground.wav</value>
+			<value>questbackground.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
@@ -14,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>10.666666666666666</value>
+			<value>16.001065759637189</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{3d19d974-8fef-40fd-b536-7494bce1318e}</destination>
