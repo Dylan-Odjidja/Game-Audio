@@ -9,14 +9,7 @@ public class PlayerFootsteps : MonoBehaviour {
     [SerializeField]
     private CURRENT_TERRAIN currentTerrain;
 
-    private FMOD.Studio.EventInstance footsteps;
-
-    private ThirdPersonUserControl thirdPersonUserControl;
-
-    private void Start() 
-    {
-        thirdPersonUserControl = GetComponent<ThirdPersonUserControl>();
-    }
+    private FMOD.Studio.EventInstance foosteps;
 
     private void Update()
     {
@@ -58,34 +51,33 @@ public class PlayerFootsteps : MonoBehaviour {
         switch (currentTerrain)
         {
             case CURRENT_TERRAIN.GRAVEL:
-                PlayFootstep(0, thirdPersonUserControl.playerWalkType);
+                PlayFootstep(1);
                 break;
 
             case CURRENT_TERRAIN.GRASS:
-                PlayFootstep(1, thirdPersonUserControl.playerWalkType);
+                PlayFootstep(0);
                 break;
 
             case CURRENT_TERRAIN.WOOD_FLOOR:
-                PlayFootstep(2, thirdPersonUserControl.playerWalkType);
+                PlayFootstep(2);
                 break;
 
             case CURRENT_TERRAIN.WATER:
-                PlayFootstep(3, thirdPersonUserControl.playerWalkType);
+                PlayFootstep(3);
                 break;
 
             default:
-                PlayFootstep(1, thirdPersonUserControl.playerWalkType);
+                PlayFootstep(0);
                 break;
         }
     }
 
-    private void PlayFootstep(int terrain, int walkType)
+    private void PlayFootstep(int terrain)
     {
-        footsteps = FMODUnity.RuntimeManager.CreateInstance("event:/Footsteps");
-        footsteps.setParameterByName("Terrain", terrain);
-        footsteps.setParameterByName("Walk Type", walkType);
-        footsteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        footsteps.start();
-        footsteps.release();
+        foosteps = FMODUnity.RuntimeManager.CreateInstance("event:/Footsteps");
+        foosteps.setParameterByName("Terrain", terrain);
+        foosteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        foosteps.start();
+        foosteps.release();
     }
 }
