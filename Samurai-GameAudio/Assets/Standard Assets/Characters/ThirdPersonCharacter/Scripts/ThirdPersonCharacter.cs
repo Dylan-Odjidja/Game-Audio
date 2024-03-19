@@ -1,7 +1,5 @@
 using UnityEngine;
 
-namespace UnityStandardAssets.Characters.ThirdPerson
-{
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
 	[RequireComponent(typeof(Animator))]
@@ -28,7 +26,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
-
 
 		void Start()
 		{
@@ -228,4 +225,3 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 	}
-}
