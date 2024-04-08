@@ -2,8 +2,6 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets.Characters.ThirdPerson
-{
     [RequireComponent(typeof(ThirdPersonCharacter))]
     public class ThirdPersonUserControl : MonoBehaviour
     {
@@ -15,6 +13,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
+        public int playerWalkType = 1;
 
         private void Start()
         {
@@ -78,7 +77,19 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
 #if !MOBILE_INPUT
             // walk speed multiplier
-            if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                m_Move *= 0.5f;
+                playerWalkType = 0;
+            }
+            else if (crouch)
+            {
+                playerWalkType = 2;
+            }
+            else
+            {
+                playerWalkType = 1;
+            }
 #endif
 
             // pass all parameters to the character control script
@@ -86,4 +97,3 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Jump = false;
         }
     }
-}

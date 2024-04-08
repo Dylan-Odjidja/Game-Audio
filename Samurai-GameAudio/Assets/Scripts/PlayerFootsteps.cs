@@ -11,6 +11,13 @@ public class PlayerFootsteps : MonoBehaviour {
 
     private FMOD.Studio.EventInstance foosteps;
 
+    private ThirdPersonUserControl thirdPersonUserControl;
+
+    private void Start()
+    {
+        thirdPersonUserControl = GetComponent<ThirdPersonUserControl>();
+    }
+
     private void Update()
     {
         DetermineTerrain();
@@ -51,31 +58,28 @@ public class PlayerFootsteps : MonoBehaviour {
         switch (currentTerrain)
         {
             case CURRENT_TERRAIN.GRAVEL:
-                PlayFootstep(1);
+                PlayFootstep(0, thirdPersonUserControl.playerWalkType);
                 break;
 
             case CURRENT_TERRAIN.GRASS:
-                PlayFootstep(0);
+                PlayFootstep(1, thirdPersonUserControl.playerWalkType);
                 break;
 
             case CURRENT_TERRAIN.WOOD_FLOOR:
-                PlayFootstep(2);
+                PlayFootstep(2, thirdPersonUserControl.playerWalkType);
                 break;
 
             case CURRENT_TERRAIN.WATER:
-                PlayFootstep(3);
-                break;
-
-            default:
-                PlayFootstep(0);
+                PlayFootstep(3, thirdPersonUserControl.playerWalkType);
                 break;
         }
     }
 
-    private void PlayFootstep(int terrain)
+    private void PlayFootstep(int terrain, int walkType)
     {
         foosteps = FMODUnity.RuntimeManager.CreateInstance("event:/Footsteps");
         foosteps.setParameterByName("Terrain", terrain);
+        foosteps.setParameterByName("Sound Level", walkType);
         foosteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         foosteps.start();
         foosteps.release();
