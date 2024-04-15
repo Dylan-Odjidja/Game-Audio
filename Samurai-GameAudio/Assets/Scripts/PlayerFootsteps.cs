@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerFootsteps : MonoBehaviour {
 
-    private enum CURRENT_TERRAIN { GRASS, GRAVEL, WOOD_FLOOR, WATER };
+    private enum CURRENT_TERRAIN { GRASS, GRAVEL, WOOD, WATER, CONCRETE };
 
     [SerializeField]
     private CURRENT_TERRAIN currentTerrain;
@@ -39,16 +39,23 @@ public class PlayerFootsteps : MonoBehaviour {
             }
             else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Wood"))
             {
-                currentTerrain = CURRENT_TERRAIN.WOOD_FLOOR;
+                currentTerrain = CURRENT_TERRAIN.WOOD;
                 break;
             }
             else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Grass"))
             {
                 currentTerrain = CURRENT_TERRAIN.GRASS;
+                break;
             }
             else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Water"))
             {
                 currentTerrain = CURRENT_TERRAIN.WATER;
+                break;
+            }
+            else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Concrete"))
+            {
+                currentTerrain = CURRENT_TERRAIN.CONCRETE;
+                break;
             }
         }
     }
@@ -65,12 +72,16 @@ public class PlayerFootsteps : MonoBehaviour {
                 PlayFootstep(1, thirdPersonUserControl.playerWalkType);
                 break;
 
-            case CURRENT_TERRAIN.WOOD_FLOOR:
+            case CURRENT_TERRAIN.WOOD:
                 PlayFootstep(2, thirdPersonUserControl.playerWalkType);
                 break;
 
             case CURRENT_TERRAIN.WATER:
                 PlayFootstep(3, thirdPersonUserControl.playerWalkType);
+                break;
+
+            case CURRENT_TERRAIN.CONCRETE:
+                PlayFootstep(4, thirdPersonUserControl.playerWalkType);
                 break;
         }
     }
