@@ -27,7 +27,6 @@ public class PlayerFootsteps : MonoBehaviour {
     {
         RaycastHit[] hit;
 
-        // Originally set at 10.0f, but needs to be set to 0.25 for Robot scenario due to how the level is built.
         hit = Physics.RaycastAll(transform.position, Vector3.down, 0.25f);
 
         foreach (RaycastHit rayhit in hit)
@@ -83,12 +82,16 @@ public class PlayerFootsteps : MonoBehaviour {
             case CURRENT_TERRAIN.CONCRETE:
                 PlayFootstep(4, thirdPersonUserControl.playerWalkType);
                 break;
+
+            default:
+                PlayFootstep(5, 2);
+                break;
         }
     }
 
     private void PlayFootstep(int terrain, int walkType)
     {
-        foosteps = FMODUnity.RuntimeManager.CreateInstance("event:/Footsteps");
+        foosteps = FMODUnity.RuntimeManager.CreateInstance("event:/Player/Footsteps");
         foosteps.setParameterByName("Terrain", terrain);
         foosteps.setParameterByName("Sound Level", walkType);
         foosteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));

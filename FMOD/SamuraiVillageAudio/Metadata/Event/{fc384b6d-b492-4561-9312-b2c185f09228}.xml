@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{fc384b6d-b492-4561-9312-b2c185f09228}">
+		<property name="color">
+			<value>Red Light 1</value>
+		</property>
 		<property name="name">
 			<value>SamuraiWarrior</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{be4db15f-5027-481a-ac4b-85ec0669c890}</destination>
+			<destination>{a1afacb8-1c56-461b-bfb2-04fa26088513}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{b973b7a7-c02d-4399-95c0-e59c6ba04e7d}</destination>

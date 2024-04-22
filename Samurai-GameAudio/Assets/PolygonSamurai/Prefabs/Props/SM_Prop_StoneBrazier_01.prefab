@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3376364}
   - component: {fileID: 2361630}
   - component: {fileID: 64061932763447248}
-  - component: {fileID: 2593093720837837147}
   m_Layer: 0
   m_Name: SM_Prop_StoneBrazier_01
   m_TagString: Untagged
@@ -109,37 +108,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43132913073583632, guid: 979d709c471969d448438af4c1a776c9, type: 2}
---- !u!114 &2593093720837837147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1583631069
-      Data2: 1215884713
-      Data3: -915007576
-      Data4: -160597430
-    Path: event:/Fire
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &6182528322560897325
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1188627727485555566}
   - component: {fileID: 7605948861081294837}
-  - component: {fileID: 1869675225728584848}
+  - component: {fileID: 3516887737285588387}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -230,12 +198,12 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 14.339204, y: 7.2231452e+28, z: 45925556, w: 2.794502e+20}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -1.1142452e-27}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1869675225728584848
+--- !u!114 &3516887737285588387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -402,11 +370,11 @@ MonoBehaviour:
       Data2: 1146974054
       Data3: 1272701875
       Data4: -301196891
-    Path: event:/Torch
+    Path: event:/Ambience/Torch
   Event: 
   PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
+  StopEvent: 2
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   AllowNonRigidbodyDoppler: 0

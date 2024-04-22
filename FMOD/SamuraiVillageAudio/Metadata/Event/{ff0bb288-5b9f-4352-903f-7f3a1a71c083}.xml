@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{ff0bb288-5b9f-4352-903f-7f3a1a71c083}">
+		<property name="color">
+			<value>Purple Light 1</value>
+		</property>
 		<property name="name">
 			<value>Background Music</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{be4db15f-5027-481a-ac4b-85ec0669c890}</destination>
+			<destination>{8ce26c3e-a9eb-4355-9a52-5df8d10da393}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{73f11b9b-471d-483c-b6fa-4cb768cf3324}</destination>

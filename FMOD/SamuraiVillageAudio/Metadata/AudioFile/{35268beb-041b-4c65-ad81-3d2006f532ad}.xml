@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{35268beb-041b-4c65-ad81-3d2006f532ad}">
+		<property name="assetPath">
+			<value>Punch_Impact.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.16378684807256236</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3d19d974-8fef-40fd-b536-7494bce1318e}</destination>
+		</relationship>
+	</object>
+</objects>
