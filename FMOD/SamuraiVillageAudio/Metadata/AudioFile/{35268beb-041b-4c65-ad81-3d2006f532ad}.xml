@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{35268beb-041b-4c65-ad81-3d2006f532ad}">
 		<property name="assetPath">
-			<value>Punch_Impact.wav</value>
+			<value>NPCS/Punch_Impact.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

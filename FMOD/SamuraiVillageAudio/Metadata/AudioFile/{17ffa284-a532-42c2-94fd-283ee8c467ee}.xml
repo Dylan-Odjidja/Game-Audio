@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{17ffa284-a532-42c2-94fd-283ee8c467ee}">
 		<property name="assetPath">
-			<value>questbackground.wav</value>
+			<value>Music/questbackground.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

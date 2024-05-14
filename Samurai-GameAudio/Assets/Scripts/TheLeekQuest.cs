@@ -16,6 +16,9 @@ public class TheLeekQuest : MonoBehaviour
     [Header("Items")]
     public GameObject leekToCollect;
     public GameObject leekToGive;
+
+    [Header("Quest Completion Sound")]
+    public GameObject questCompletionSoundEmitter;
     public bool questStarted;
     bool doesPlayerHaveLeek;
     // Start is called before the first frame update
@@ -35,6 +38,7 @@ public class TheLeekQuest : MonoBehaviour
         LeekPickup();
         MarketSellerStart();
         MarketSellerEnd();
+       // CheckQuestCompletion();
     }
 
     void MarketSellerStart()
@@ -82,8 +86,38 @@ public class TheLeekQuest : MonoBehaviour
                 leekToGive.SetActive(true);
                 leekUIImage.SetActive(false);
             }
+        if (doesPlayerHaveLeek && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger)
+        {
+        // Quest is completed
+        Debug.Log("Quest Completed!"); // Debug statement for testing
+
+        // Call a function to play the quest complete sound
+        PlayQuestCompleteSound();
+
+
+             }
+
+            
         }
     }
-
-
+     void PlayQuestCompleteSound()
+    {
+        if (questCompletionSoundEmitter != null)
+        {
+            var soundEmitter = questCompletionSoundEmitter.GetComponent<FMODUnity.StudioEventEmitter>();
+            if (soundEmitter != null)
+            {
+                soundEmitter.Play();
+            }
+            else
+            {
+                Debug.LogError("Quest completion sound emitter is missing FMODUnity.StudioEventEmitter component.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Quest completion sound emitter is not assigned.");
+        }
+    
+    }
 }

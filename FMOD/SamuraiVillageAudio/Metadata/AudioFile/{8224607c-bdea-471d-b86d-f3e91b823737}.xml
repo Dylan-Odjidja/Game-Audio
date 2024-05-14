@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{8224607c-bdea-471d-b86d-f3e91b823737}">
 		<property name="assetPath">
-			<value>heavy_breathing.wav</value>
+			<value>NPCS/heavy_breathing.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
