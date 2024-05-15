@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 public class BackgroundMusicController : MonoBehaviour
@@ -15,6 +15,7 @@ public class BackgroundMusicController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Update method is called.");
         // Check for player interaction (e.g., pressing triggerEvent)
         if (Input.GetKeyDown(triggerEvent))
         {
