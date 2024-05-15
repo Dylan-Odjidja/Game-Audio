@@ -16,6 +16,8 @@ public class QuestLogic : MonoBehaviour
 
     public GameObject endquestTrigger;
 
+   
+
     bool questComplete;
 
     public bool playerHasEnteredSwordTrigger;

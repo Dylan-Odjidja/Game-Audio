@@ -95,14 +95,14 @@
 		<property name="length">
 			<value>2.04</value>
 		</property>
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{f1f299ee-a8f6-43f6-aa45-2233fab34b55}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f1549a31-bbb2-4897-ac97-a3a1e1a88a8b}">
-		<property name="volume">
-			<value>10</value>
-		</property>
 		<property name="name">
 			<value>Questcomplete</value>
 		</property>
@@ -136,7 +136,7 @@
 			<value>-49</value>
 		</property>
 		<property name="dryLevel">
-			<value>-41</value>
+			<value>-17.5</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{8da6af3f-4837-489e-975a-eb0db24678ff}" />

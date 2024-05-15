@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 public class TheLeekQuest : MonoBehaviour
@@ -17,8 +19,14 @@ public class TheLeekQuest : MonoBehaviour
     public GameObject leekToCollect;
     public GameObject leekToGive;
 
+    [Header("Quest Start Sound")]
+    public GameObject questStartSoundEmitter;
+
     [Header("Quest Completion Sound")]
     public GameObject questCompletionSoundEmitter;
+
+    public BackgroundMusicController musicController; // Reference to BackgroundMusicController script
+
     public bool questStarted;
     bool doesPlayerHaveLeek;
     // Start is called before the first frame update
@@ -30,7 +38,15 @@ public class TheLeekQuest : MonoBehaviour
         pressToTalkUI.SetActive(false);
         leekToGive.SetActive(false);
         leekUIImage.SetActive(false);
+
+        // Find the BackgroundMusicController script in the scene
+        musicController = FindObjectOfType<BackgroundMusicController>();
+        if (musicController == null)
+        {
+            Debug.LogError("BackgroundMusicController script not found in the scene.");
+        }
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -52,9 +68,39 @@ public class TheLeekQuest : MonoBehaviour
 
                 questStarted = true;
                 pressToTalkUI.SetActive(false);
+                 // Call function to play the quest start sound
+                PlayQuestStartSound();
+                musicController.SwitchToQuestMusic(); // Switch to quest music
+                
+        }
             }
         }
+
+   
+    void PlayQuestStartSound()
+{
+    // Check if the quest start sound emitter is assigned
+    if (questStartSoundEmitter != null)
+    {
+        // Get the FMODUnity.StudioEventEmitter component
+        var soundEmitter = questStartSoundEmitter.GetComponent<FMODUnity.StudioEventEmitter>();
+        if (soundEmitter != null)
+        {
+            // Play the sound
+            soundEmitter.Play();
+        }
+        else
+        {
+            Debug.LogError("Quest start sound emitter is missing FMODUnity.StudioEventEmitter component.");
+        }
     }
+    else
+    {
+        Debug.LogError("Quest start sound emitter is not assigned.");
+    }
+}
+    
+
     void LeekPickup()
     {
         if (questStarted == true && leekTrigger.GetComponent<LeekPickup>().playerIsInLeekTrigger == true)
@@ -74,6 +120,8 @@ public class TheLeekQuest : MonoBehaviour
             }
         }
     }
+
+
     void MarketSellerEnd()
     {
         if (doesPlayerHaveLeek == true && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
@@ -93,13 +141,15 @@ public class TheLeekQuest : MonoBehaviour
 
         // Call a function to play the quest complete sound
         PlayQuestCompleteSound();
+        musicController.SwitchToDefaultMusic(); // Switch back to default music
+            }
 
-
-             }
-
+        
+        }
             
         }
-    }
+        
+
      void PlayQuestCompleteSound()
     {
         if (questCompletionSoundEmitter != null)
@@ -120,4 +170,5 @@ public class TheLeekQuest : MonoBehaviour
         }
     
     }
+
 }
