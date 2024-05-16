@@ -12,7 +12,7 @@ public class MarketSellerInteraction : MonoBehaviour
         if (backgroundMusicEmitter != null)
         {
             // Set the parameter to indicate that the player is in quest mode
-            backgroundMusicEmitter.setParameter("QUEST", 1); // Assuming "InQuest" is the correct parameter name
+            /*backgroundMusicEmitter.setParameter("QUEST", 1);*/ // Assuming "InQuest" is the correct parameter name
         }
         else
         {
@@ -27,7 +27,7 @@ public class MarketSellerInteraction : MonoBehaviour
         if (backgroundMusicEmitter != null)
         {
             // Set the parameter to indicate that the player is not in quest mode
-            backgroundMusicEmitter.setParameter("QUEST", 0); // Assuming "InQuest" is the correct parameter name
+            /*backgroundMusicEmitter.setParameter("QUEST", 0);*/ // Assuming "InQuest" is the correct parameter name
         }
         else
         {
