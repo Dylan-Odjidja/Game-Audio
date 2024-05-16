@@ -6,7 +6,6 @@ public class EndQuestTrigger : MonoBehaviour
 {
     public bool playerInEndTrigger;
     public GameObject SwordQuestCompleteSoundEmitter;
-    public BackgroundMusicController musicController;
     
     // Start is called before the first frame update
     void Start()
@@ -57,5 +56,5 @@ public class EndQuestTrigger : MonoBehaviour
             Debug.LogError("qSwordQuestCompleteSoundEmitter GameObject reference is not set.");
         }
  
-}
+    }
 }

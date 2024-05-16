@@ -15,7 +15,6 @@ public class QuestLogic : MonoBehaviour
     public GameObject pickupInventory;
 
     public GameObject endquestTrigger;
-
    
 
     bool questComplete;
@@ -33,8 +32,6 @@ public class QuestLogic : MonoBehaviour
         pickupInventory.SetActive(false);
         questComplete = false;
         emperorsSwordEnd.SetActive(false);
-
-        
     }
 
     // Update is called once per frame
@@ -53,6 +50,7 @@ public class QuestLogic : MonoBehaviour
             playerHasSword = true;
             pickupUI.SetActive(false);
             pickupInventory.SetActive(true);
+            pickupTrigger.GetComponent<SwordPickup>().PlaySwordQuestStartSound();
         }
     }
     void EndQuest()

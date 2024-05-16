@@ -15,6 +15,7 @@ public class TheLeekQuest : MonoBehaviour
     public GameObject pressToPickUpUI;
     public GameObject pressToGiveUI;
     public GameObject leekUIImage;
+
     [Header("Items")]
     public GameObject leekToCollect;
     public GameObject leekToGive;
@@ -24,6 +25,9 @@ public class TheLeekQuest : MonoBehaviour
 
     [Header("Quest Completion Sound")]
     public GameObject questCompletionSoundEmitter;
+
+    [Header("Backround Music")]
+    public BackgroundMusicController backgroundMusicController;
 
     public bool questStarted;
     bool doesPlayerHaveLeek;
@@ -59,10 +63,11 @@ public class TheLeekQuest : MonoBehaviour
                 pressToTalkUI.SetActive(false);
                 // Call function to play the quest start sound
                 PlayQuestStartSound();
+                backgroundMusicController.ChangeMusic(1);
             }
         }
     }
-    void PlayQuestStartSound()
+    public void PlayQuestStartSound()
     {
         // Check if the quest start sound emitter is assigned
         if (questStartSoundEmitter != null)
@@ -97,8 +102,6 @@ public class TheLeekQuest : MonoBehaviour
                     Destroy(leekToCollect);
                     doesPlayerHaveLeek = true;
                     leekUIImage.SetActive(true);
-
-
                 }
             }
         }
@@ -120,11 +123,12 @@ public class TheLeekQuest : MonoBehaviour
 
                 // Call a function to play the quest complete sound
                 PlayQuestCompleteSound();
+                backgroundMusicController.ChangeMusic(0);
             }
         }   
     }
 
-    void PlayQuestCompleteSound()
+    public void PlayQuestCompleteSound()
     {
         if (questCompletionSoundEmitter != null)
         {
