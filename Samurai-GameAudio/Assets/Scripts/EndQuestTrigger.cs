@@ -7,6 +7,9 @@ public class EndQuestTrigger : MonoBehaviour
 
     public bool playerInEndTrigger;
     public GameObject  SwordQuestCompleteSoundEmitter;
+
+    public BackGroundMusicController musicController;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,8 @@ public class EndQuestTrigger : MonoBehaviour
 
             // Play the quest completion sound when the player enters the end trigger
             PlayQuestCompletionSound();
+
+            EndQuest();
         } 
     }
 
