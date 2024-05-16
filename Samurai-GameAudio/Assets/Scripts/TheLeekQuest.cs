@@ -37,7 +37,6 @@ public class TheLeekQuest : MonoBehaviour
         leekToGive.SetActive(false);
         leekUIImage.SetActive(false);
     }
-    
 
     // Update is called once per frame
     void Update()
@@ -45,7 +44,6 @@ public class TheLeekQuest : MonoBehaviour
         LeekPickup();
         MarketSellerStart();
         MarketSellerEnd();
-   
     }
 
     void MarketSellerStart()
@@ -59,38 +57,33 @@ public class TheLeekQuest : MonoBehaviour
 
                 questStarted = true;
                 pressToTalkUI.SetActive(false);
-                 // Call function to play the quest start sound
+                // Call function to play the quest start sound
                 PlayQuestStartSound();
-              
-        }
             }
         }
-
-   
+    }
     void PlayQuestStartSound()
-{
-    // Check if the quest start sound emitter is assigned
-    if (questStartSoundEmitter != null)
     {
-        // Get the FMODUnity.StudioEventEmitter component
-        var soundEmitter = questStartSoundEmitter.GetComponent<FMODUnity.StudioEventEmitter>();
-        if (soundEmitter != null)
+        // Check if the quest start sound emitter is assigned
+        if (questStartSoundEmitter != null)
         {
-            // Play the sound
-            soundEmitter.Play();
+            // Get the FMODUnity.StudioEventEmitter component
+            var soundEmitter = questStartSoundEmitter.GetComponent<FMODUnity.StudioEventEmitter>();
+            if (soundEmitter != null)
+            {
+                // Play the sound
+                soundEmitter.Play();
+            }
+            else
+            {
+                Debug.LogError("Quest start sound emitter is missing FMODUnity.StudioEventEmitter component.");
+            }
         }
         else
         {
-            Debug.LogError("Quest start sound emitter is missing FMODUnity.StudioEventEmitter component.");
+            Debug.LogError("Quest start sound emitter is not assigned.");
         }
     }
-    else
-    {
-        Debug.LogError("Quest start sound emitter is not assigned.");
-    }
-}
-    
-
     void LeekPickup()
     {
         if (questStarted == true && leekTrigger.GetComponent<LeekPickup>().playerIsInLeekTrigger == true)
@@ -111,7 +104,6 @@ public class TheLeekQuest : MonoBehaviour
         }
     }
 
-
     void MarketSellerEnd()
     {
         if (doesPlayerHaveLeek == true && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
@@ -123,26 +115,16 @@ public class TheLeekQuest : MonoBehaviour
                 pressToGiveUI.SetActive(false);
                 leekToGive.SetActive(true);
                 leekUIImage.SetActive(false);
-            }
-        if (doesPlayerHaveLeek && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger)
-        {
-        // Quest is completed
-        Debug.Log("Quest Completed!"); // Debug statement for testing
+                // Quest is completed
+                Debug.Log("Quest Completed!"); // Debug statement for testing
 
-        // Call a function to play the quest complete sound
-        PlayQuestCompleteSound();
-       
+                // Call a function to play the quest complete sound
+                PlayQuestCompleteSound();
             }
-
-        
-        }
-            
+        }   
     }
 
-
-        
-
-     void PlayQuestCompleteSound()
+    void PlayQuestCompleteSound()
     {
         if (questCompletionSoundEmitter != null)
         {
@@ -160,7 +142,5 @@ public class TheLeekQuest : MonoBehaviour
         {
             Debug.LogError("Quest completion sound emitter is not assigned.");
         }
-    
     }
-
 }

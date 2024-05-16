@@ -54,7 +54,6 @@ public class QuestLogic : MonoBehaviour
             pickupUI.SetActive(false);
             pickupInventory.SetActive(true);
         }
-
     }
     void EndQuest()
     {
@@ -65,6 +64,7 @@ public class QuestLogic : MonoBehaviour
             pickupUI.SetActive(false);
             playerHasSword = false;
             pickupInventory.SetActive(false);
+            endquestTrigger.GetComponent<EndQuestTrigger>().PlayQuestCompletionSound();
         }
     }
     void DisplayUI()
