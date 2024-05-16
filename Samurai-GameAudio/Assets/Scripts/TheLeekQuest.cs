@@ -25,9 +25,6 @@ public class TheLeekQuest : MonoBehaviour
     [Header("Quest Completion Sound")]
     public GameObject questCompletionSoundEmitter;
 
-    [Header("Background Music Control")]
-    public BackgroundMusicController musicController; // Reference to BackgroundMusicController script
-
     public bool questStarted;
     bool doesPlayerHaveLeek;
     // Start is called before the first frame update
@@ -39,13 +36,6 @@ public class TheLeekQuest : MonoBehaviour
         pressToTalkUI.SetActive(false);
         leekToGive.SetActive(false);
         leekUIImage.SetActive(false);
-
-        //Find the BackgroundMusicController script in the scene
-       // musicController = FindObjectOfType<BackgroundMusicController>();
-        //if (musicController == null)
-        //{
-          //  Debug.LogError("BackgroundMusicController script not found in the scene.");
-        //}
     }
     
 
@@ -55,7 +45,7 @@ public class TheLeekQuest : MonoBehaviour
         LeekPickup();
         MarketSellerStart();
         MarketSellerEnd();
-       // CheckQuestCompletion();
+   
     }
 
     void MarketSellerStart()
@@ -71,8 +61,7 @@ public class TheLeekQuest : MonoBehaviour
                 pressToTalkUI.SetActive(false);
                  // Call function to play the quest start sound
                 PlayQuestStartSound();
-              // musicController.SwitchToQuestMusic(); // Switch to quest music
-               // StartQuest();
+              
         }
             }
         }
@@ -142,31 +131,12 @@ public class TheLeekQuest : MonoBehaviour
 
         // Call a function to play the quest complete sound
         PlayQuestCompleteSound();
-       //musicController.SwitchToDefaultMusic(); // Switch back to default music
-      // EndQuest();
+       
             }
 
         
         }
             
-        }
-
-            // Method to start the quest
-    void StartQuest()
-    {
-        questStarted = true;
-        // Switch background music to quest mode
-        musicController.SwitchToQuestMusic();
-        // Other quest start actions...
-    }
-
-    // Method to end the quest
-    void EndQuest()
-    {
-        questStarted = false;
-        // Switch background music to default mode
-        musicController.SwitchToDefaultMusic();
-        // Other quest end actions...
     }
 
 
