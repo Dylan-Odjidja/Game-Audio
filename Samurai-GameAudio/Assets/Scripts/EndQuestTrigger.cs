@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class EndQuestTrigger : MonoBehaviour
 {
-
     public bool playerInEndTrigger;
-    public GameObject  SwordQuestCompleteSoundEmitter;
-
-    public BackGroundMusicController musicController;
+    public GameObject SwordQuestCompleteSoundEmitter;
     
     // Start is called before the first frame update
     void Start()
@@ -27,11 +24,6 @@ public class EndQuestTrigger : MonoBehaviour
     {
         if(player.gameObject.tag == "Player"){
             playerInEndTrigger = true;
-
-            // Play the quest completion sound when the player enters the end trigger
-            PlayQuestCompletionSound();
-
-            EndQuest();
         } 
     }
 
@@ -40,7 +32,8 @@ public class EndQuestTrigger : MonoBehaviour
             playerInEndTrigger = false;
         }
     }
-    void PlayQuestCompletionSound()
+
+    public void PlayQuestCompletionSound()
     {
         if (SwordQuestCompleteSoundEmitter != null)
         {
@@ -63,5 +56,5 @@ public class EndQuestTrigger : MonoBehaviour
             Debug.LogError("qSwordQuestCompleteSoundEmitter GameObject reference is not set.");
         }
  
-}
+    }
 }
