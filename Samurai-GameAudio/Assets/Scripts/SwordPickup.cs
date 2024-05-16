@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordPickup : MonoBehaviour
-{
-    
+{ 
     public bool playerCanPickupSword;
     public GameObject SwordquestStartSoundEmitter;
     
@@ -17,11 +16,10 @@ public class SwordPickup : MonoBehaviour
     {
         if(player.gameObject.tag == "Player"){
             playerCanPickupSword = true;
-            PlaySwordQuestStartSound();
         }
     }
     
-     void PlaySwordQuestStartSound()
+    public void PlaySwordQuestStartSound()
 {
     // Check if the Sword quest start sound emitter is assigned
     if (SwordquestStartSoundEmitter != null)
