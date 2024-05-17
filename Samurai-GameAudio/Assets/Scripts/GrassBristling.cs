@@ -9,7 +9,7 @@ public class GrassBristling : MonoBehaviour
     public FMODUnity.StudioEventEmitter grassBristlingEmitter;
     public ThirdPersonUserControl thirdPersonUserControl;
     public ThirdPersonCharacter Player;
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -17,7 +17,7 @@ public class GrassBristling : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -25,7 +25,7 @@ public class GrassBristling : MonoBehaviour
         }
     }
 
-    private void PlayGrassBristlingSound()
+    public void PlayGrassBristlingSound()
     {
         // Check if the grass bristling emitter is assigned
         if (grassBristlingEmitter != null)
@@ -45,7 +45,7 @@ public class GrassBristling : MonoBehaviour
         }
     }
 
-    private void StopGrassBristlingSound()
+    public void StopGrassBristlingSound()
     {
         // Check if the grass bristling emitter is assigned and playing
         if (grassBristlingEmitter != null && grassBristlingEmitter.IsPlaying())

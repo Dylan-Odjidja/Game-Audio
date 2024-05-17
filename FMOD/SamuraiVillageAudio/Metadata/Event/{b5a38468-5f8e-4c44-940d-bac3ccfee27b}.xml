@@ -97,6 +97,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{91e37cb4-6b0c-4890-b5a7-a5eeb89dc4d2}">
+		<property name="volume">
+			<value>9.5</value>
+		</property>
 		<property name="name">
 			<value>Tallgrass</value>
 		</property>
@@ -140,9 +143,15 @@
 	<object class="MixerBusEffectChain" id="{c6d99a60-1243-4d77-8d34-1494533880d6}">
 		<relationship name="effects">
 			<destination>{01ba384f-b828-406c-98fc-67bfeafaf18c}</destination>
+			<destination>{6598c884-be65-4312-9ce1-be3a9ba8797d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3343e560-fe6f-49ad-89b6-9b3665344dae}" />
 	<object class="MixerBusFader" id="{630117cf-8297-4e2a-bc5c-58e0d02cbf50}" />
 	<object class="MixerBusFader" id="{01ba384f-b828-406c-98fc-67bfeafaf18c}" />
+	<object class="SFXReverbEffect" id="{6598c884-be65-4312-9ce1-be3a9ba8797d}">
+		<property name="wetLevel">
+			<value>-30</value>
+		</property>
+	</object>
 </objects>
