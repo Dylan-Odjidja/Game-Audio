@@ -16,6 +16,8 @@ public class TheLeekQuest : MonoBehaviour
     public GameObject pressToGiveUI;
     public GameObject leekUIImage;
 
+    public StudioEventEmitter PickupSoundEmitter;
+
     [Header("Items")]
     public GameObject leekToCollect;
     public GameObject leekToGive;
@@ -102,10 +104,26 @@ public class TheLeekQuest : MonoBehaviour
                     Destroy(leekToCollect);
                     doesPlayerHaveLeek = true;
                     leekUIImage.SetActive(true);
+
+                     // Play the leek pickup sound
+                     PlayLeekPickupSound();
                 }
             }
         }
     }
+    // Function to play the leek pickup sound
+void PlayLeekPickupSound()
+{
+    // Check if the leek pickup sound emitter is assigned
+    if (PickupSoundEmitter != null)
+    {
+        PickupSoundEmitter.Play();
+    }
+    else
+    {
+        Debug.LogWarning("Leek pickup sound emitter is not assigned.");
+    }
+}
 
     void MarketSellerEnd()
     {
