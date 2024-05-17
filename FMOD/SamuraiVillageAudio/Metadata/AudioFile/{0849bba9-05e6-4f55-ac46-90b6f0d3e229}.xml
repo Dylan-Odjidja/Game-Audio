@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{0849bba9-05e6-4f55-ac46-90b6f0d3e229}">
 		<property name="assetPath">
-			<value>46040__deleted_user_229898__birds_05.flac</value>
+			<value>Environment/46040__deleted_user_229898__birds_05.flac</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

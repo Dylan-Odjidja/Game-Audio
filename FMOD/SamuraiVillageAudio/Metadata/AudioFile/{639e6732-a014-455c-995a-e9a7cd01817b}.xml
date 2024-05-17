@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{639e6732-a014-455c-995a-e9a7cd01817b}">
 		<property name="assetPath">
-			<value>ambience-wind-blowing-through-trees-01-186986.mp3</value>
+			<value>Environment/ambience-wind-blowing-through-trees-01-186986.mp3</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
