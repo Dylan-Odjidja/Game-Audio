@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{4bb797c4-73f4-4cb3-896b-600402041d0a}">
+		<property name="assetPath">
+			<value>Vox_F_3NPC_Castle.aif</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>6.8266666666666671</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3d19d974-8fef-40fd-b536-7494bce1318e}</destination>
+		</relationship>
+	</object>
+</objects>
