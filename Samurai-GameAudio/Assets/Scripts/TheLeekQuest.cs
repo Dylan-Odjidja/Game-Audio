@@ -16,6 +16,8 @@ public class TheLeekQuest : MonoBehaviour
     public GameObject pressToGiveUI;
     public GameObject leekUIImage;
 
+    public StudioEventEmitter PickupSoundEmitter;
+
     [Header("Items")]
     public GameObject leekToCollect;
     public GameObject leekToGive;
@@ -29,6 +31,8 @@ public class TheLeekQuest : MonoBehaviour
     [Header("Backround Music")]
     public BackgroundMusicController backgroundMusicController;
 
+    [Header("Error Sound")]
+    public StudioEventEmitter ErrorSoundEmitter;
     public bool questStarted;
     bool doesPlayerHaveLeek;
     // Start is called before the first frame update
@@ -46,6 +50,7 @@ public class TheLeekQuest : MonoBehaviour
     void Update()
     {
         LeekPickup();
+        LeekNotPicked();
         MarketSellerStart();
         MarketSellerEnd();
     }
@@ -102,11 +107,55 @@ public class TheLeekQuest : MonoBehaviour
                     Destroy(leekToCollect);
                     doesPlayerHaveLeek = true;
                     leekUIImage.SetActive(true);
+
+                     // Play the leek pickup sound
+                     PlayLeekPickupSound();
                 }
             }
         }
     }
 
+    
+    // Function to play the leek pickup sound
+void PlayLeekPickupSound()
+{
+    // Check if the leek pickup sound emitter is assigned
+    if (PickupSoundEmitter != null)
+    {
+        PickupSoundEmitter.Play();
+    }
+    else
+    {
+        Debug.LogWarning("Leek pickup sound emitter is not assigned.");
+    }
+}
+    void LeekNotPicked()
+    {
+    if (doesPlayerHaveLeek == false && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
+        {
+            pressToGiveUI.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                // Play error sound
+                PlayErrorSound();
+            }
+        }
+    }
+
+    void PlayErrorSound()
+    {
+     if (ErrorSoundEmitter != null)
+    {
+        ErrorSoundEmitter.Play();
+        //UIManager.DisplayErrorMessage("You need to bring the leek back!");
+    }
+    else
+    {
+        Debug.LogWarning("Error sound emitter is not assigned.");
+    }
+
+
+    }
     void MarketSellerEnd()
     {
         if (doesPlayerHaveLeek == true && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
