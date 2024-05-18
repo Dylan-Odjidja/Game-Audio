@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class NoPlayerZone : MonoBehaviour
 {
-
     public bool playerInNoPlayerZone;
 
     public Image turnBack;
@@ -15,12 +11,10 @@ public class NoPlayerZone : MonoBehaviour
     Volume v;
 
     float t;
-    // Start is called before the first frame update
+
     void Awake()
     {
         v = GetComponent<Volume>();
-
-
     }
 
     void Start()
@@ -31,7 +25,6 @@ public class NoPlayerZone : MonoBehaviour
         tempColor.a = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
         t = 0.01f;
@@ -49,7 +42,6 @@ public class NoPlayerZone : MonoBehaviour
         }
 
         turnBack.color = tempColor;
-
     }
 
     void OnTriggerEnter(Collider player)
@@ -61,8 +53,4 @@ public class NoPlayerZone : MonoBehaviour
     {
         playerInNoPlayerZone = false;
     }
-
-
-
-
 }
