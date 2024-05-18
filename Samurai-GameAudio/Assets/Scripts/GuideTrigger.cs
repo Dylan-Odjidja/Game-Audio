@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class GuideTrigger : MonoBehaviour
 {
     public SpriteRenderer guideImage;
+
+    public StudioEventEmitter PopupEmitter;
     bool guideOn;
 
     public float guidefadetime;
@@ -31,6 +34,7 @@ public class GuideTrigger : MonoBehaviour
         if (player.gameObject.tag == "Player")
         {
             guideOn = true;
+            PlayPopUpSound();
         }
     }
 
@@ -39,6 +43,7 @@ public class GuideTrigger : MonoBehaviour
         if (player.gameObject.tag == "Player")
         {
             guideOn = false;
+            StopPopUpSound();
         }
     }
 
@@ -58,5 +63,31 @@ public class GuideTrigger : MonoBehaviour
       
         }
         guideImage.color = tempcolor;
+    }
+
+ // Function to play the popup sound
+    void PlayPopUpSound()
+    {
+        if (PopupEmitter != null)
+        {
+            PopupEmitter.Play();
+        }
+        else
+        {
+            Debug.LogWarning("Popup sound emitter is not assigned.");
+        }
+    }
+
+    // Function to stop the popup sound
+    void StopPopUpSound()
+    {
+        if (PopupEmitter != null)
+        {
+            PopupEmitter.Stop();
+        }
+        else
+        {
+            Debug.LogWarning("Popup sound emitter is not assigned.");
+        }
     }
 }
