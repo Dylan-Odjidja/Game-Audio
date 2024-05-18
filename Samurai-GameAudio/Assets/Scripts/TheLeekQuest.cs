@@ -17,19 +17,18 @@ public class TheLeekQuest : MonoBehaviour
     public GameObject leekToCollect;
     public GameObject leekToGive;
 
-    [Header("Quest Start Sound")]
+    [Header("Quest Sounds")]
     public GameObject questStartSoundEmitter;
-
-    [Header("Quest Completion Sound")]
-    public GameObject questCompletionSoundEmitter;
+    public GameObject questEndSoundEmitter;
+    public GameObject leekGrabSoundEmitter;
 
     [Header("Backround Music")]
     public BackgroundMusicController backgroundMusicController;
 
-    public bool questStarted;
-    bool doesPlayerHaveLeek;
+    internal bool questStarted;
+    internal bool questCompleted;
+    internal bool doesPlayerHaveLeek;
 
-    // Start is called before the first frame update
     void Start()
     {
         questStarted = false;
@@ -40,7 +39,6 @@ public class TheLeekQuest : MonoBehaviour
         leekUIImage.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         LeekPickup();
@@ -57,9 +55,48 @@ public class TheLeekQuest : MonoBehaviour
             {
                 pressToTalkUI.SetActive(false);
                 questStarted = true;
-                // Call function to play the quest start sound
                 PlayQuestStartSound();
                 backgroundMusicController.ChangeMusic(1);
+            }
+        }
+    }
+
+    void LeekPickup()
+    {
+        if (questStarted == true && leekTrigger.GetComponent<LeekPickup>().playerIsInLeekTrigger == true)
+        {
+            if (doesPlayerHaveLeek == false)
+            {
+                pressToPickUpUI.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    pressToPickUpUI.SetActive(false);
+                    Destroy(leekToCollect);
+                    doesPlayerHaveLeek = true;
+                    leekUIImage.SetActive(true);
+                    PlayLeekGrabSound();
+                }
+            }
+        }
+    }
+
+    void MarketSellerEnd()
+    {
+        if (marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true && questStarted == true && !questCompleted)
+        {
+            pressToGiveUI.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E) && doesPlayerHaveLeek == true)
+            {
+                doesPlayerHaveLeek = false;
+                pressToGiveUI.SetActive(false);
+                leekToGive.SetActive(true);
+                leekUIImage.SetActive(false);
+                questCompleted = true;
+                PlayQuestCompleteSound();
+            }
+            else if (Input.GetKeyDown(KeyCode.E) && (doesPlayerHaveLeek == false)) 
+            {
+                RuntimeManager.PlayOneShot("event:/Interactable/Quest Error", this.transform.position);
             }
         }
     }
@@ -87,58 +124,11 @@ public class TheLeekQuest : MonoBehaviour
         }
     }
 
-    void LeekPickup()
-    {
-        if (questStarted == true && leekTrigger.GetComponent<LeekPickup>().playerIsInLeekTrigger == true)
-        {
-            if (doesPlayerHaveLeek == false)
-            {
-                pressToPickUpUI.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    pressToPickUpUI.SetActive(false);
-                    Destroy(leekToCollect);
-                    doesPlayerHaveLeek = true;
-                    leekUIImage.SetActive(true);
-                }
-            }
-        }
-    }
-
-    void MarketSellerEnd()
-    {
-        if (doesPlayerHaveLeek == true && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
-        {
-            pressToGiveUI.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                doesPlayerHaveLeek = false;
-                pressToGiveUI.SetActive(false);
-                leekToGive.SetActive(true);
-                leekUIImage.SetActive(false);
-                // Quest is completed
-                Debug.Log("Quest Completed!"); // Debug statement for testing
-
-                // Call a function to play the quest complete sound
-                PlayQuestCompleteSound();
-            }
-        }
-
-        if (doesPlayerHaveLeek == false && questStarted && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
-        {
-            pressToGiveUI.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                RuntimeManager.PlayOneShot("event:/Interactable/Quest Error", this.transform.position);
-            }
-        }
-    }
-
     public void PlayQuestCompleteSound()
     {
-        if (questCompletionSoundEmitter != null)
+        if (questEndSoundEmitter != null)
         {
-            var soundEmitter = questCompletionSoundEmitter.GetComponent<StudioEventEmitter>();
+            var soundEmitter = questEndSoundEmitter.GetComponent<StudioEventEmitter>();
             if (soundEmitter != null)
             {
                 soundEmitter.Play();
@@ -151,6 +141,26 @@ public class TheLeekQuest : MonoBehaviour
         else
         {
             Debug.LogError("Quest completion sound emitter is not assigned.");
+        }
+    }
+
+    public void PlayLeekGrabSound()
+    {
+        if (leekGrabSoundEmitter != null)
+        {
+            var soundEmitter = leekGrabSoundEmitter.GetComponent<StudioEventEmitter>();
+            if (soundEmitter != null)
+            {
+                soundEmitter.Play();
+            }
+            else
+            {
+                Debug.LogError("Leek grab sound emitter is missing FMODUnity.StudioEventEmitter component.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Leek grab sound emitter is not assigned.");
         }
     }
 }

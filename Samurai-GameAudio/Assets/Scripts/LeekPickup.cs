@@ -1,10 +1,10 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LeekPickup : MonoBehaviour
 {
-    // Start is called before the first frame update
     public bool playerIsInLeekTrigger;
 
     void Start()
@@ -27,5 +27,4 @@ public class LeekPickup : MonoBehaviour
             playerIsInLeekTrigger = false;
         }
     }
-
 }
