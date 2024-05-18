@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
@@ -31,6 +28,7 @@ public class TheLeekQuest : MonoBehaviour
 
     public bool questStarted;
     bool doesPlayerHaveLeek;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,23 +55,22 @@ public class TheLeekQuest : MonoBehaviour
             pressToTalkUI.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                //Add your conversation here
-
-                questStarted = true;
                 pressToTalkUI.SetActive(false);
+                questStarted = true;
                 // Call function to play the quest start sound
                 PlayQuestStartSound();
                 backgroundMusicController.ChangeMusic(1);
             }
         }
     }
+
     public void PlayQuestStartSound()
     {
         // Check if the quest start sound emitter is assigned
         if (questStartSoundEmitter != null)
         {
-            // Get the FMODUnity.StudioEventEmitter component
-            var soundEmitter = questStartSoundEmitter.GetComponent<FMODUnity.StudioEventEmitter>();
+            // Get the StudioEventEmitter component
+            var soundEmitter = questStartSoundEmitter.GetComponent<StudioEventEmitter>();
             if (soundEmitter != null)
             {
                 // Play the sound
@@ -89,6 +86,7 @@ public class TheLeekQuest : MonoBehaviour
             Debug.LogError("Quest start sound emitter is not assigned.");
         }
     }
+
     void LeekPickup()
     {
         if (questStarted == true && leekTrigger.GetComponent<LeekPickup>().playerIsInLeekTrigger == true)
@@ -123,16 +121,24 @@ public class TheLeekQuest : MonoBehaviour
 
                 // Call a function to play the quest complete sound
                 PlayQuestCompleteSound();
-                backgroundMusicController.ChangeMusic(0);
             }
-        }   
+        }
+
+        if (doesPlayerHaveLeek == false && questStarted && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
+        {
+            pressToGiveUI.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                RuntimeManager.PlayOneShot("event:/Interactable/Quest Error", this.transform.position);
+            }
+        }
     }
 
     public void PlayQuestCompleteSound()
     {
         if (questCompletionSoundEmitter != null)
         {
-            var soundEmitter = questCompletionSoundEmitter.GetComponent<FMODUnity.StudioEventEmitter>();
+            var soundEmitter = questCompletionSoundEmitter.GetComponent<StudioEventEmitter>();
             if (soundEmitter != null)
             {
                 soundEmitter.Play();

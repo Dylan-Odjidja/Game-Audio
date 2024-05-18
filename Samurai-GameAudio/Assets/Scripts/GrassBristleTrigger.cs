@@ -3,7 +3,15 @@ using UnityEngine;
 public class GrassBristleTrigger : MonoBehaviour
 {
     public GrassBristling grassBristling; // Reference to the GrassBristling script
-   // public ThirdPersonCharacter Player;
+    public GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+        grassBristling = player.GetComponent<GrassBristling>();
+    }
+
+    // public ThirdPersonCharacter Player;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

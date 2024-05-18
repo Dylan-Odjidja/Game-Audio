@@ -6,9 +6,14 @@ using FMODUnity;
 
 public class GrassBristling : MonoBehaviour
 {
-    public FMODUnity.StudioEventEmitter grassBristlingEmitter;
+    public StudioEventEmitter grassBristlingEmitter;
     public ThirdPersonUserControl thirdPersonUserControl;
-    public ThirdPersonCharacter Player;
+
+    private void Start()
+    {
+        thirdPersonUserControl = GetComponent<ThirdPersonUserControl>();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
