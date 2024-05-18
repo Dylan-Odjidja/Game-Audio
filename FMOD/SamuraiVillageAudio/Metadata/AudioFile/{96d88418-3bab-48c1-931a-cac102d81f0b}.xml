@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+<<<<<<<< HEAD:FMOD/SamuraiVillageAudio/Metadata/AudioFile/{10098d0c-8611-4664-bfa8-0c95f892a026}.xml
+	<object class="AudioFile" id="{10098d0c-8611-4664-bfa8-0c95f892a026}">
+		<property name="assetPath">
+			<value>Environment/Pondambience.mp3</value>
+========
+	<object class="AudioFile" id="{96d88418-3bab-48c1-931a-cac102d81f0b}">
+		<property name="assetPath">
+			<value>614867__opticaillusions__jewel-glitter.wav</value>
+>>>>>>>> Carla-v4:FMOD/SamuraiVillageAudio/Metadata/AudioFile/{96d88418-3bab-48c1-931a-cac102d81f0b}.xml
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+<<<<<<<< HEAD:FMOD/SamuraiVillageAudio/Metadata/AudioFile/{10098d0c-8611-4664-bfa8-0c95f892a026}.xml
+			<value>24</value>
+========
+			<value>44.0999985</value>
+>>>>>>>> Carla-v4:FMOD/SamuraiVillageAudio/Metadata/AudioFile/{96d88418-3bab-48c1-931a-cac102d81f0b}.xml
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+<<<<<<<< HEAD:FMOD/SamuraiVillageAudio/Metadata/AudioFile/{10098d0c-8611-4664-bfa8-0c95f892a026}.xml
+			<value>214.15199999999999</value>
+========
+			<value>28.210226757369615</value>
+>>>>>>>> Carla-v4:FMOD/SamuraiVillageAudio/Metadata/AudioFile/{96d88418-3bab-48c1-931a-cac102d81f0b}.xml
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3d19d974-8fef-40fd-b536-7494bce1318e}</destination>
+		</relationship>
+	</object>
+</objects>
