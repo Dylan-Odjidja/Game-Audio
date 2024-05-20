@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GrassBristleTrigger : MonoBehaviour
 {
-    public GrassBristling grassBristling; // Reference to the GrassBristling script
+    public GrassBristling grassBristling;
     public GameObject player;
 
     private void Start()
@@ -16,7 +16,6 @@ public class GrassBristleTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Call a method in the GrassBristling script to handle the trigger enter event
             grassBristling.PlayGrassBristlingSound();
         }
     }
@@ -25,7 +24,6 @@ public class GrassBristleTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Call a method in the GrassBristling script to handle the trigger exit event
             grassBristling.StopGrassBristlingSound();
         }
     }

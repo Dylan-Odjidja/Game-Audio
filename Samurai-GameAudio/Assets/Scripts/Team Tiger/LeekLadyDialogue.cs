@@ -15,20 +15,22 @@ public class LeekLadyDialogue : MonoBehaviour
 
     void Update()
     {
-        if (marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true && theLeekQuest.GetComponent<TheLeekQuest>().questStarted == false)
+        if (marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true 
+            && theLeekQuest.GetComponent<TheLeekQuest>().questStarted == false)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/NPCs/Leek Lady (Quest Start)", this.transform.position);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/NPCs/Leek Lady (Quest Start)", transform.position);
                 StartCoroutine(Dialogue("Leek Lady: Please can you grab me a leek?"));
             }
         }
 
-        if (theLeekQuest.GetComponent<TheLeekQuest>().doesPlayerHaveLeek == true && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
+        if (theLeekQuest.GetComponent<TheLeekQuest>().doesPlayerHaveLeek == true 
+            && marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/NPCs/Leek Lady (Quest End)", this.transform.position);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/NPCs/Leek Lady (Quest End)", transform.position);
                 StartCoroutine(Dialogue("Leek Lady: Thank You!"));
             }
         }

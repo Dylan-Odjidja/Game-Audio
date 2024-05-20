@@ -2,13 +2,9 @@ using UnityEngine;
 
 public class PlayerFootsteps : MonoBehaviour {
 
-    private enum CURRENT_TERRAIN { GRASS, GRAVEL, WOOD, WATER, CONCRETE };
-
-    [SerializeField]
-    private CURRENT_TERRAIN currentTerrain;
-
+    private enum CURRENT_TERRAIN { GRASS, GRAVEL, WOOD, CONCRETE };
+    [SerializeField]  private CURRENT_TERRAIN currentTerrain;
     private FMOD.Studio.EventInstance foosteps;
-
     private ThirdPersonUserControl thirdPersonUserControl;
 
     private void Start()
@@ -44,11 +40,6 @@ public class PlayerFootsteps : MonoBehaviour {
                 currentTerrain = CURRENT_TERRAIN.GRASS;
                 break;
             }
-            else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Water"))
-            {
-                currentTerrain = CURRENT_TERRAIN.WATER;
-                break;
-            }
             else if (rayhit.transform.gameObject.layer == LayerMask.NameToLayer("Concrete"))
             {
                 currentTerrain = CURRENT_TERRAIN.CONCRETE;
@@ -73,16 +64,8 @@ public class PlayerFootsteps : MonoBehaviour {
                 PlayFootstep(2, thirdPersonUserControl.playerWalkType);
                 break;
 
-            case CURRENT_TERRAIN.WATER:
-                PlayFootstep(3, thirdPersonUserControl.playerWalkType);
-                break;
-
             case CURRENT_TERRAIN.CONCRETE:
-                PlayFootstep(4, thirdPersonUserControl.playerWalkType);
-                break;
-
-            default:
-                PlayFootstep(5, 2);
+                PlayFootstep(3, thirdPersonUserControl.playerWalkType);
                 break;
         }
     }

@@ -61,7 +61,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{39672493-8e2c-4082-a6fb-4833533c0993}">
 		<property name="maximumDistance">
-			<value>10</value>
+			<value>25</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{c4f4b5bf-ef42-4f1b-857a-2f50391bbdf5}" />
@@ -108,7 +108,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{3b52c049-eaf4-4e17-8a37-a15b2c30bbb5}">
 		<property name="volume">
-			<value>-14.5</value>
+			<value>-19.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -141,6 +141,7 @@
 		<relationship name="effects">
 			<destination>{34e0b5ff-0a55-4971-aa46-6dfb8b7fc2d8}</destination>
 			<destination>{0aeb2e62-366e-436a-8f68-760c4c472bce}</destination>
+			<destination>{5237ecd7-130a-4863-bc2f-23fe444a56c7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{080dc063-d2c3-48f6-936f-176de49e5b59}" />
@@ -157,5 +158,6 @@
 			<value>4</value>
 		</property>
 	</object>
+	<object class="PitchShifterEffect" id="{5237ecd7-130a-4863-bc2f-23fe444a56c7}" />
 	<object class="MixerBusFader" id="{fe61b5dd-3396-4385-9c51-7454b535fbea}" />
 </objects>

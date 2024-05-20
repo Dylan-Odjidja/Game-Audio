@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +15,8 @@ public class SwordManDialogue : MonoBehaviour
 
     void Update()
     {
-        if (endquestTrigger.GetComponent<EndQuestTrigger>().playerInEndTrigger == true && questLogic.GetComponent<QuestLogic>().playerHasSword && Input.GetKeyDown(KeyCode.E))
+        if (endquestTrigger.GetComponent<EndQuestTrigger>().playerInEndTrigger == true 
+            && questLogic.GetComponent<QuestLogic>().playerHasSword && Input.GetKeyDown(KeyCode.E))
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/NPCs/Sword Man (Quest End)", this.transform.position);
             StartCoroutine(Dialogue("Emperor: Thank you my boy!"));

@@ -1,7 +1,6 @@
 using UnityEngine;
 using FMODUnity;
 
-
 public class GrassBristling : MonoBehaviour
 {
     public StudioEventEmitter grassBristlingEmitter;

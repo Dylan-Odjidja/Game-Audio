@@ -1,4 +1,5 @@
 using FMODUnity;
+using System.Collections;
 using UnityEngine;
 
 public class TheLeekQuest : MonoBehaviour
@@ -54,7 +55,7 @@ public class TheLeekQuest : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 pressToTalkUI.SetActive(false);
-                questStarted = true;
+                StartCoroutine(ErrorTimeout());
                 PlayQuestStartSound();
                 backgroundMusicController.ChangeMusic(1);
             }
@@ -85,6 +86,7 @@ public class TheLeekQuest : MonoBehaviour
         if (marketSellerTrigger.GetComponent<MarketSellerTrigger>().playerIsInMarketSellerTrigger == true && questStarted == true && !questCompleted)
         {
             pressToGiveUI.SetActive(true);
+            pressToTalkUI.SetActive(false);
             if (Input.GetKeyDown(KeyCode.E) && doesPlayerHaveLeek == true)
             {
                 doesPlayerHaveLeek = false;
@@ -103,14 +105,11 @@ public class TheLeekQuest : MonoBehaviour
 
     public void PlayQuestStartSound()
     {
-        // Check if the quest start sound emitter is assigned
         if (questStartSoundEmitter != null)
         {
-            // Get the StudioEventEmitter component
             var soundEmitter = questStartSoundEmitter.GetComponent<StudioEventEmitter>();
             if (soundEmitter != null)
             {
-                // Play the sound
                 soundEmitter.Play();
             }
             else
@@ -162,5 +161,12 @@ public class TheLeekQuest : MonoBehaviour
         {
             Debug.LogError("Leek grab sound emitter is not assigned.");
         }
+    }
+
+    IEnumerator ErrorTimeout()
+    {
+        yield return new WaitForSeconds(0.25f);
+        pressToTalkUI.SetActive(false);
+        questStarted = true;
     }
 }
