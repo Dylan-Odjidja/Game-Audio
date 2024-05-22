@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{38dc3463-d903-4e6f-a264-2926905c1589}">
 		<property name="assetPath">
-			<value>emperor.wav</value>
+			<value>NPCS/emperor.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

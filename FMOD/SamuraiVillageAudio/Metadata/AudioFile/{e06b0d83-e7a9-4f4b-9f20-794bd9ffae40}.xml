@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{e06b0d83-e7a9-4f4b-9f20-794bd9ffae40}">
 		<property name="assetPath">
-			<value>673777__klankbeeld__river-reeds-wind-1153am-220809-0482.wav</value>
+			<value>Environment/673777__klankbeeld__river-reeds-wind-1153am-220809-0482.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

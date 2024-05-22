@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{ef0d2577-b777-45bf-b9f4-f851daeaca91}">
 		<property name="assetPath">
-			<value>Voice Male_1.aif</value>
+			<value>NPCS/Voice Male_1.aif</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

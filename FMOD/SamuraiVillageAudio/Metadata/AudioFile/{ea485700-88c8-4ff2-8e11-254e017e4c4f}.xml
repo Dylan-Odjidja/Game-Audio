@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{ea485700-88c8-4ff2-8e11-254e017e4c4f}">
 		<property name="assetPath">
-			<value>water_1.aif</value>
+			<value>Environment/water_1.aif</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

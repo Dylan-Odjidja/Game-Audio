@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{9984a5d8-df03-4443-9fa2-0d5b6c7408fe}">
 		<property name="assetPath">
-			<value>401939__straget__grasshopper.wav</value>
+			<value>Environment/401939__straget__grasshopper.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{c9b66493-d2d5-4163-bd0f-54729ef810d7}">
 		<property name="assetPath">
-			<value>Gong_1.aif</value>
+			<value>Environment/Gong_1.aif</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
