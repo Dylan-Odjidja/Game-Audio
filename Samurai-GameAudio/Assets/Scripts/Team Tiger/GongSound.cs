@@ -1,24 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
+using System.Collections;
 
 public class GongSound : MonoBehaviour
 {
     public StudioEventEmitter gongSound;
+    public GongTriggerBox gongTriggerBox;
 
-    // Start is called before the first frame update
-    void Start()
+    internal bool playable;
+
+    private void Start()
     {
-        
+        playable = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        PlayGong();
+    }
+
+    void PlayGong()
+    {
+        if (gongTriggerBox.playerIsInTrigger == true && Input.GetKeyDown(KeyCode.E) && playable == true)
         {
             gongSound.Play();
+            StartCoroutine(GongTimeout());
         }
+    }
+
+    IEnumerator GongTimeout()
+    {
+        playable = false;
+        yield return new WaitForSeconds(2);
+        playable = true;
     }
 }
